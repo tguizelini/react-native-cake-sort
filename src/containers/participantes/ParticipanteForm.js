@@ -88,6 +88,7 @@ class ParticipanteForm extends React.Component {
           />
           
           <EditText 
+            password
             holder='Senha' 
             value={this.state.senha} 
             onChange={value => this.onChange('senha', value)} 
