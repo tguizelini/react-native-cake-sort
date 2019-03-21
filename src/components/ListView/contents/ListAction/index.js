@@ -23,7 +23,7 @@ class ListAction extends Component {
             noMargin 
             style={styles.participanteText}
           >
-              {this.props.participante}
+              {this.props.nome}
             </Text>
 
           <Text 
@@ -47,14 +47,14 @@ ListAction.propTypes = {
   onDeleteClick: PropTypes.func,
   id: PropTypes.number,
   sorteios: PropTypes.number,
-  participante: PropTypes.string
+  nome: PropTypes.string
 }
 
 ListAction.defaultProps = {
   onDeleteClick: id => false,
   id: 0,
   sorteios: 0,
-  participante: 'Tiago Guizelini'
+  nome: 'Tiago Guizelini'
 }
 
 export default ListAction

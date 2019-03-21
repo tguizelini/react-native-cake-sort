@@ -8,7 +8,8 @@ import LoadingActions from '../../redux/actions/LoadingActions'
 import {
   ContainerLinear,
   ListView,
-  ActionButton
+  ActionButton,
+  Text
 } from '../../components'
 
 import colors from '../../values/colors'
@@ -26,13 +27,13 @@ class SorteioLista extends React.Component {
           icon: 'cake',
           color: colors.accent, 
           title: 'Novo Sortear', 
-          action: this.sortear
+          action: () => this.sortear()
         },
         { 
           icon: 'perm-identity',
           color: colors.accent, 
           title: 'Participantes', 
-          action: this.participantes 
+          action: () => this.participantes()
         }
       ]
     }
@@ -41,34 +42,33 @@ class SorteioLista extends React.Component {
     this.participantes = this.participantes.bind(this)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchSorteios()
   }
+
 
   participantes = () => this.props.navigation.navigate('ParticipanteLista')
 
   fetchSorteios = async () => {
-    this.props.action.Loading.setStatus(true)
-    this.props.action.Loading.setMessage('Buscando sorteios..')
+    //this.props.action.Loading.setStatus(true)
+    //this.props.action.Loading.setMessage('Buscando sorteios..')
 
     const res = await SorteioService.list()
-
-    this.props.action.Loading.setStatus(false)
 
     switch (res.status) {
       case 200:
         this.setState({ items: res.data })
         break
-      default: 
+      case 500: 
         Alert.alert('', res.message)
         this.setState({ items: [] })
         break
     }
+
+    //this.props.action.Loading.setStatus(false)
   }
   
   sortear = async () => {
-    Alert.alert('', 'Sortear')
-
     this.props.action.Loading.setStatus(true)
     this.props.action.Loading.setMessage('Efetuando novo sorteio..')
 
@@ -89,10 +89,16 @@ class SorteioLista extends React.Component {
   render() {
     return (
       <ContainerLinear>
-        <ListView.View
-          type={ListView.Type.EVENTO}
-          items={this.state.items}
-        />
+        { this.state.items.length == 0 ?
+            <ContainerLinear center>
+              <Text>Nenhum sorteio encontrado</Text>
+            </ContainerLinear>
+          :
+            <ListView.View
+              type={ListView.Type.EVENTO}
+              items={this.state.items}
+            />
+        }
 
         <ActionButton actions={this.state.actions} />
       </ContainerLinear>

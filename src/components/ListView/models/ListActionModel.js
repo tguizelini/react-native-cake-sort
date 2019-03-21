@@ -1,7 +1,7 @@
 const ListActionModel = () => ({
   id: null,
-  participante: '',
-  sorteios: 0
+  nome: '',
+  count: 0
 })
 
 export default ListActionModel

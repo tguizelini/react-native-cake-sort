@@ -82,6 +82,7 @@ const renderElement = (
   material
 ) => (
   <TextField
+    autoCapitalize='none'
     prefix={prefix}
     suffix={suffix}
     characterRestriction={characterLimit}

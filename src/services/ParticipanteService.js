@@ -9,9 +9,11 @@ const list = () => new Promise(resolve => {
     .then(res => {
       const response = ResponseModel()
 
-      response.status = res.response.data.status
-      response.message = res.response.data.message
-      response.data = res.response.data.data
+      console.log('SUCCESS: ParticipanteService.list.res => ', res)
+
+      response.status = res.data.status
+      response.message = res.data.message
+      response.data = res.data.data
 
       resolve(response)
     })
@@ -32,9 +34,11 @@ const save = obj => new Promise(resolve => {
     .then(res => {
       const response = ResponseModel()
 
-      response.status = res.response.data.status
-      response.message = res.response.data.message
-      response.data = res.response.data.data
+      console.log('SUCCESS: ParticipanteService.save.res => ', res)
+
+      response.status = res.data.status
+      response.message = res.data.message
+      response.data = res.data.data
 
       resolve(response)
     })
@@ -56,9 +60,9 @@ const del = id => new Promise(resolve => {
     .then(res => {
       const response = ResponseModel()
 
-      response.status = res.response.data.status
-      response.message = res.response.data.message
-      response.data = res.response.data.data
+      response.status = res.data.status
+      response.message = res.data.message
+      response.data = res.data.data
 
       resolve(response)
     })

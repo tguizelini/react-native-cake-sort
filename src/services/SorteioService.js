@@ -9,14 +9,18 @@ const list = () => new Promise(resolve => {
     .then(res => {
       const response = ResponseModel()
 
-      response.status = res.response.data.status
-      response.message = res.response.data.message
-      response.data = res.response.data.data
+      console.log('SorteioService:: list.res => ', res)
+
+      response.status = res.data.status
+      response.message = res.data.message
+      response.data = res.data.data
 
       resolve(response)
     })
     .catch(err => {
       const response = ResponseModel()
+
+      console.log('SorteioService:: ERR list.res => ', res)
 
       response.status = err.response.data.status
       response.message = err.response.data.message
@@ -32,9 +36,9 @@ const sortear = () => new Promise(resolve => {
     .then(res => {
       const response = ResponseModel()
 
-      response.status = res.response.data.status
-      response.message = res.response.data.message
-      response.data = res.response.data.data
+      response.status = res.data.status
+      response.message = res.data.message
+      response.data = res.data.data
 
       resolve(response)
     })

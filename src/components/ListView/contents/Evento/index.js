@@ -31,7 +31,7 @@ class Evento extends Component {
 
         <ContainerLinear center style={styles.containerInfo} onClick={() => this.onClick()}>
           <Text style={styles.dataText}>{this.props.data}</Text>
-          <Text style={styles.participanteText}>{this.props.participante}</Text>
+          <Text style={styles.participanteText}>{this.props.nome}</Text>
         </ContainerLinear>
         
       </ImageBackground>
@@ -45,14 +45,14 @@ Evento.propTypes = {
   onItemClick: PropTypes.func,
   id: PropTypes.number,
   data: PropTypes.string,
-  participante: PropTypes.string
+  nome: PropTypes.string
 }
 
 Evento.defaultProps = {
   onItemClick: () => false,
   id: 0,
   data: '22/12/2019',
-  participante: 'Tiago Guizelini'
+  nome: 'Tiago Guizelini'
 }
 
 export default Evento
