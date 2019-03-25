@@ -55,6 +55,8 @@ class ParticipanteLista extends React.Component {
           participantes.push(novo)
         })
 
+        console.log('participantes -> ', participantes)
+
         this.setState({
           items: participantes
         })

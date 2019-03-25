@@ -14,6 +14,7 @@ import Login from '../../containers/Login'
 import ParticipanteLista from '../../containers/participantes/ParticipanteLista'
 import ParticipanteForm from '../../containers/participantes/ParticipanteForm'
 import SorteioLista from '../../containers/sorteios/SorteioLista'
+import SorteioDoDia from '../../containers/sorteios/SorteioDoDia'
 
 const BackButton = ({ navigation }) => (
   <View style={stylesLocal.containerBackButton}>
@@ -38,6 +39,16 @@ const LogoutButton = ({ navigation }) => (
 const Stack = StackNavigator(
   {
     Login: { screen: Login, navigationOptions: { header: null } },
+    SorteioDoDia: { 
+      screen: SorteioDoDia, 
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: 'Sorteio do Dia',
+        headerTitleStyle: {
+          fontWeight: 'normal'
+        },
+        headerRight: <LogoutButton navigation={navigation} />
+      })
+    },
     SorteioLista: { 
       screen: SorteioLista, 
       navigationOptions: ({ navigation }) => ({
@@ -45,7 +56,7 @@ const Stack = StackNavigator(
         headerTitleStyle: {
           fontWeight: 'normal'
         },
-        headerRight: <LogoutButton navigation={navigation} />
+        headerLeft: <BackButton navigation={navigation} />
       })
     },
     ParticipanteLista: { 

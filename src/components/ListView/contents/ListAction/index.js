@@ -30,7 +30,7 @@ class ListAction extends Component {
             noMargin 
             style={styles.sorteioText}
           >
-            Sorteado {this.props.sorteios} vezes
+            Sorteado {this.props.count} vezes
           </Text>
         </ContainerLinear>
 

@@ -68,7 +68,7 @@ class Login extends React.Component {
 
     switch (res.status) {
       case 200:
-        this.props.navigation.navigate('SorteioLista')
+        this.props.navigation.navigate('SorteioDoDia')
         break
       case 403:
         Alert.alert('', res.message)
