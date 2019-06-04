@@ -1,4 +1,4 @@
-## React Native - sorteio de bolo!
+# React Native - sorteio de bolo!
 
 Esse app faz o sorteio de bolo e possui:
 
@@ -8,3 +8,6 @@ Esse app faz o sorteio de bolo e possui:
 - Sorteio automático
 - Ver lista de sorteios anteriores
 - Consumo de API para guardar/buscar as informações
+
+### A API para consumo do App pode ser encontrada no repositório abaixo, feita em Node.js
+https://github.com/tguizelini/node-base-api
